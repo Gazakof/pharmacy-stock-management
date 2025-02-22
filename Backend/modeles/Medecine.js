@@ -5,7 +5,7 @@ const medecineSchema = new mongoose.Schema({
   quantity: { type: Number, require: true },
   price: { type: Number, require: true },
   supplier: { type: String, require: true },
-  expiration: { type: Date, require: true },
+  expiration: { type: Date },
   image: { type: String },
 });
 
