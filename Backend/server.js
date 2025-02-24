@@ -9,6 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 //Midleware
+app.use(express.json());
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -23,6 +24,8 @@ mongoose
 
 //Routes
 app.use("/medecines", require("./routes/medecineRoutes"));
+app.use("/api/auth", require("./routes/auth"));
+app.use("/api/protected", require("./routes/protected"));
 
 //Launch the server
 app.listen(PORT, () =>
