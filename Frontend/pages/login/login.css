@@ -61,4 +61,20 @@
 .login-content p {
   margin-top: 2rem;
   margin-left: 20%;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 576px) {
+  .login-container {
+    width: 420px;
+  }
+  .login-form label {
+    font-size: 0.8rem;
+  }
+  .login-form input {
+    padding: 0.25rem;
+  }
+  .login-content p {
+    font-size: 0.8rem;
+  }
 }

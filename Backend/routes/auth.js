@@ -21,16 +21,21 @@ router.post(
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty())
-      return res.status(400).json({ errors: errors.array() });
+      return res
+        .status(400)
+        .json({ msg: "Password must be longer than 6 characters." });
 
     const { fullName, email, password } = req.body;
 
     try {
       //New user verification
       let user = await User.findOne({ email });
-      if (user)
-        return res.status(400).json({ message: "User already exists." });
+      if (user) return res.status(400).json({ msg: "User already exists." });
 
+      if (password.length < 6)
+        return res
+          .status(400)
+          .json({ msg: "Password must be longer than 6 characters." });
       //Hash password
       const salt = await bcrypt.genSalt(10);
       const hashedPswd = await bcrypt.hash(password, salt);
@@ -38,9 +43,9 @@ router.post(
       //Save user
       user = new User({ fullName, email, password: hashedPswd });
       await user.save();
-      res.json({ message: "Registration successfully!" });
+      res.json({ msg: "Registration successfully!" });
     } catch (err) {
-      res.status(500).json({ message: "An unexpected Server Error." });
+      res.status(500).json({ msg: "An unexpected Server Error." });
     }
   }
 );
@@ -48,10 +53,7 @@ router.post(
 //Login route
 router.post(
   "/login",
-  [
-    body("email").isEmail().withMessage("Enter a valid email adress."),
-    body("password").exists().withMessage("Invalid password."),
-  ],
+  [body("email").isEmail(), body("password").exists()],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty())
@@ -62,12 +64,12 @@ router.post(
     try {
       //User verification
       const user = await User.findOne({ email });
-      if (!user) return res.status(400).json({ message: "User not found." });
+      if (!user) return res.status(400).json({ msg: "User not found." });
 
       //Password verification
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch)
-        return res.status(400).json({ meassage: "Enter a valid password." });
+        return res.status(400).json({ msg: "Enter a valid password." });
 
       //Generate token
       const token = jwt.sign(
@@ -78,7 +80,7 @@ router.post(
 
       res.json({ token });
     } catch (err) {
-      res.status(500).json({ message: "An unexpected Server Error!" });
+      res.status(500).json({ msg: "An unexpected Server Error!" });
     }
   }
 );

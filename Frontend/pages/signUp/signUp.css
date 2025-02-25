@@ -1,0 +1,80 @@
+#signUp {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url(../../assets/img/88.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.signUp-container {
+  width: 560px;
+  height: fit-content;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 1px 5px 20px 2px rgba(0, 0, 0, 0.5);
+}
+
+.signUp-container h2 {
+  font-size: 1.6rem;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.signUp-content {
+}
+
+.signUp-form {
+}
+
+.signUp-form div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem;
+}
+
+.signUp-form label {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+.signUp-form input {
+  width: 70%;
+  padding: 0.8rem;
+  background-color: #ffffff85;
+  border: none;
+  border-radius: 0.5rem;
+}
+
+.signUp-form input:focus {
+  border: none;
+  background-color: #ffffffd2;
+}
+
+.signUp-button {
+  margin-top: 1rem;
+  margin-left: 40%;
+}
+
+.signUp-content p {
+  margin-top: 2rem;
+  margin-left: 20%;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 576px) {
+  .signUp-container {
+    width: 420px;
+  }
+  .signUp-form label {
+    font-size: 0.8rem;
+  }
+  .signUp-form input {
+    padding: 0.25rem;
+  }
+  .signUp-content p {
+    font-size: 0.8rem;
+  }
+}
