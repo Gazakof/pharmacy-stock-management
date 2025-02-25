@@ -67,7 +67,7 @@ router.post(
       //Password verification
       const isMatch = await bcrypt.compare(password, user.password);
       if (!isMatch)
-        return res.status(400).json({ meassage: "Incorrect password." });
+        return res.status(400).json({ meassage: "Enter a valid password." });
 
       //Generate token
       const token = jwt.sign(

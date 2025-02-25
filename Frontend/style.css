@@ -1,0 +1,31 @@
+@font-face {
+  font-family: "Poppins-regular";
+  src: url(./assets/fonts/Poppins-Regular.ttf) format(truetype);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  transition: 0.3s;
+}
+
+body,
+button,
+input,
+textarea {
+  font-family: "Poppins-regular";
+}
+
+button {
+  font-size: 1.1rem;
+  padding: 0.5rem 1.5rem;
+  color: #fff;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: #103d68;
+  box-shadow: 1px 5px 20px 2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+button:hover {
+  box-shadow: 1px 5px 20px 2px rgba(0, 0, 0, 0.5);
+}
