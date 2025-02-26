@@ -9,6 +9,10 @@
   transition: 0.3s;
 }
 
+body {
+  background-color: rgb(162, 196, 228);
+}
+
 body,
 button,
 input,
