@@ -18,8 +18,8 @@ document.addEventListener("DOMContentLoaded", async function () {
       }
       const medecines = await response.json();
       displayMedecines(medecines);
-    } catch (err) {
-      console.log(err);
+    } catch (error) {
+      console.log(error);
     }
   }
 
