@@ -2,9 +2,10 @@ const express = require("express");
 
 const router = express.Router();
 const Medecine = require("../modeles/Medecine");
+const authMiddleware = require("../middleware/middleware_auth");
 
 //Add medecine
-router.post("/", async (req, res) => {
+router.post("/", authMiddleware, async (req, res) => {
   try {
     const newMedecine = new Medecine(req.body);
     const savedMedicine = await newMedecine.save();
@@ -15,7 +16,7 @@ router.post("/", async (req, res) => {
 });
 
 //Get all medecines
-router.get("/", async (req, res) => {
+router.get("/", authMiddleware, async (req, res) => {
   try {
     const medecines = await Medecine.find();
     res.json(medecines);
@@ -25,7 +26,7 @@ router.get("/", async (req, res) => {
 });
 
 //Update medecine
-router.put("/:id", async (req, res) => {
+router.put("/:id", authMiddleware, async (req, res) => {
   try {
     const updateMedecine = await Medecine.findByIdAndUpdate(
       req.params.id,
@@ -39,7 +40,7 @@ router.put("/:id", async (req, res) => {
 });
 
 //Delete
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", authMiddleware, async (req, res) => {
   try {
     await Medecine.findByIdAndDelete(req.params.id);
     res.json({ message: "Medecine deleted." });

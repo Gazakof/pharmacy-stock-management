@@ -3,9 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Dashboard - Medecine managment</title>
+    <link rel="stylesheet" href="dashbord.css" />
+    <link rel="stylesheet" href="../../style.css" />
   </head>
   <body>
-    <div>DAshboard</div>
+    <h1>Dashboard</h1>
+    <button id="onLogout">Logout</button>
+    <h2>List of Medecine</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Quantit</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="medecine-list"></tbody>
+    </table>
+    <script src="dashboard.js"></script>
   </body>
 </html>
