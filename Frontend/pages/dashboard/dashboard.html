@@ -12,24 +12,49 @@
       <div class="logo">
         <img />
       </div>
-      <div class="searchbar"></div>
-      <div class="toggleMenu"></div>
+      <div class="searchBar"></div>
+      <div class="toggleMenu">
+        <button id="onLogout">Logout</button>
+      </div>
     </header>
     <h1>Dashboard</h1>
-    <button id="onLogout">Logout</button>
     <h2>List of Medecine</h2>
 
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Quantit</th>
-          <th>Price</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody id="medecine-list"></tbody>
-    </table>
+    <main class="main">
+      <nav class="left-nav">
+        <div class="left-container">
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody id="medecine-list"></tbody>
+          </table>
+          <button class="add-medecine-btn"><span>+</span> Add medecine</button>
+        </div>
+      </nav>
+
+      <div class="right-main">
+        <h2 class="right-title"></h2>
+        <div class="right-container">
+          <div class="right-content">
+            <div>Details</div>
+            <h2 class="content-title"></h2>
+            <div class="content-item">
+              <img class="medecine-img" src="" alt="" />
+              <p class="medecine-name"></p>
+              <div class="content-item-action">
+                <button>Edit</button>
+                <button>Delete</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img src="" alt="" />
+      </div>
+    </main>
     <script src="dashboard.js"></script>
   </body>
 </html>

@@ -29,13 +29,8 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     medecines.forEach((med) => {
       const row = document.createElement("tr");
-      row.innerHTML = `<td>${med.name}</td>
-            <td>${med.quantity}</td>
-            <td>${med.price}</td>
-            <td>
-            <button onClick="editMedecine('${med._id}')">Edit</button>
-            <button onClick="deleteMedecine('${med._id}')">Delete</button>
-            </td>`;
+      row.innerHTML = `<td class="medecine-name">${med.name}</td>
+            <td class="medecine-quantity">${med.quantity}</td>`;
       tableBody.appendChild(row);
     });
   }
