@@ -71,12 +71,12 @@ Simply open `index.html` in a browser to access the frontend.
 
 ### **Medicine Management**
 
-| Method | Endpoint             | Description                            |
-| ------ | -------------------- | -------------------------------------- |
-| GET    | `/api/medicines`     | Get all medicines                      |
-| POST   | `/api/medicines`     | Add a new medicine (with image upload) |
-| PUT    | `/api/medicines/:id` | Update medicine details                |
-| DELETE | `/api/medicines/:id` | Delete a medicine                      |
+| Method | Endpoint         | Description                            |
+| ------ | ---------------- | -------------------------------------- |
+| GET    | `/medicines`     | Get all medicines                      |
+| POST   | `/medicines`     | Add a new medicine (with image upload) |
+| PUT    | `/medicines/:id` | Update medicine details                |
+| DELETE | `/medicines/:id` | Delete a medicine                      |
 
 ---
 
