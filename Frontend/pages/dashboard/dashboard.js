@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", async function () {
     return;
   }
 
+  let medicines = [];
+  let currentIndex = 0;
+
   async function fetchMedicines() {
     try {
       const response = await fetch("http://localhost:5000/medecines/", {
@@ -16,18 +19,18 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (!response.ok) {
         throw new Error("Error while loading medecines.");
       }
-      const medecines = await response.json();
-      displayMedecines(medecines);
+      medicines = await response.json();
+      displayMedecines(medicines);
     } catch (error) {
       console.log(error);
     }
   }
 
-  function displayMedecines(medecines) {
+  function displayMedecines(medicines) {
     const tableBody = document.getElementById("medecine-list");
     tableBody.innerHTML = "";
 
-    medecines.forEach((med) => {
+    medicines.forEach((med) => {
       const row = document.createElement("tr");
       row.innerHTML = `<td class="medecine-name">${med.name}</td>
             <td class="medecine-quantity">${med.quantity}</td>`;
