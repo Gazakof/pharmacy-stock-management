@@ -100,48 +100,61 @@ function closeModal() {
   desactive.classList.remove("active-modal");
 }
 
-document
-  .getElementById("modal-form")
-  .addEventListener("submit", async function (e) {
-    e.preventDefault();
+document.addEventListener("DOMContentLoaded", function () {
+  const token = localStorage.getItem("token");
 
-    const name = document.getElementById("name").value;
-    const quantity = document.getElementById("quantity").value;
-    const price = document.getElementById("price").value;
-    const manufacturer = document.getElementById("manufacturer").value;
-    const expiration = document.getElementById("expiration").value;
+  if (!token) {
+    window.location.href = "../login/login.html";
+    return;
+  }
 
-    const errMessage = document.getElementById("error-text");
+  document
+    .getElementById("modal-form")
+    .addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    try {
-      const response = await fetch("http://localhost:5000/medicines", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${token}` },
-        body: JSON.stringify({
-          name,
-          quantity,
-          price,
-          manufacturer,
-          expiration,
-        }),
-      });
+      const name = document.getElementById("name").value;
+      const quantity = document.getElementById("quantity").value;
+      const price = document.getElementById("price").value;
+      const manufacturer = document.getElementById("manufacturer").value;
+      const expiration = document.getElementById("expiration").value;
 
-      let data;
+      const errMessage = document.getElementById("error-text");
+
+      if (!name || !quantity || !price || !manufacturer || !expiration) {
+        errMessage.textContent = "Fill all the fields please.";
+        return;
+      }
 
       try {
-        data = await response.json();
-        console.log(data);
-      } catch (jsonError) {
-        throw new Error("Server response invalid.");
-      }
+        const response = await fetch("http://localhost:5000/medicines", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            name,
+            quantity,
+            price,
+            manufacturer,
+            expiration,
+          }),
+        });
 
-      if (!response.ok) {
-        errMessage.textContent = "Fill all the fields please.";
-      }
+        let data;
 
-      localStorage.getItem("token", data.token);
-      closeModal();
-    } catch (err) {
-      console.log("Server error!");
-    }
-  });
+        try {
+          data = await response.json();
+          console.log(data);
+        } catch (jsonError) {
+          throw new Error("Server response invalid.");
+        }
+
+        document.getElementById("modal-form").reset();
+        closeModal();
+      } catch (err) {
+        console.log("Server error!");
+      }
+    });
+});

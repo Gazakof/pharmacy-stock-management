@@ -19,7 +19,6 @@ document
       let data;
       try {
         data = await response.json();
-        console.log(data);
       } catch (jsonError) {
         throw new Error("Server response invalid.");
       }
