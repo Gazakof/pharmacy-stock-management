@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Medecine managment</title>
+    <title>Dashboard - Medicine managment</title>
     <link rel="stylesheet" href="dashbord.css" />
     <link rel="stylesheet" href="../../style.css" />
   </head>
@@ -18,7 +18,7 @@
       </div>
     </header>
     <h1>Dashboard</h1>
-    <h2>List of Medecine</h2>
+    <h2>List of Medicine</h2>
 
     <main class="main">
       <nav class="left-nav">
@@ -30,14 +30,16 @@
                 <th>Quantity</th>
               </tr>
             </thead>
-            <tbody id="medecine-list"></tbody>
+            <tbody id="medicine-list"></tbody>
           </table>
-          <button class="add-medecine-btn"><span>+</span> Add medecine</button>
+          <button class="add-medicine-Btn" onclick="showModal()">
+            <span>+</span> Add medicine
+          </button>
         </div>
       </nav>
-      <section id="medicine-modal">
+      <section class="medicine-modal">
         <div class="modal-content">
-          <button id="close-Btn">X</button>
+          <button id="close-Btn" onclick="closeModal()">X</button>
           <form id="modal-form">
             <div class="modal-form-container">
               <label for="name">Name</label>
@@ -56,9 +58,10 @@
               <input type="text" id="manufacturer" />
             </div>
             <div class="modal-form-container">
-              <label for="">Expiration</label>
-              <input type="date" id="" />
+              <label for="expiration">Expiration</label>
+              <input type="date" id="expiration" />
             </div>
+            <p id="error-text"></p>
             <button type="submit">ADD</button>
           </form>
         </div>

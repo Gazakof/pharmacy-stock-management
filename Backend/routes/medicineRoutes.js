@@ -1,39 +1,39 @@
 const express = require("express");
 
 const router = express.Router();
-const Medecine = require("../modeles/Medecine");
+const Medicine = require("../modeles/Medicine");
 const authMiddleware = require("../middleware/middleware_auth");
 
-//Add medecine
+//Add medicine
 router.post("/", authMiddleware, async (req, res) => {
   try {
-    const newMedecine = new Medecine(req.body);
-    const savedMedicine = await newMedecine.save();
+    const newMedicine = new Medicine(req.body);
+    const savedMedicine = await newMedicine.save();
     res.status(201).json(savedMedicine);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-//Get all medecines
+//Get all medicines
 router.get("/", authMiddleware, async (req, res) => {
   try {
-    const medecines = await Medecine.find();
-    res.json(medecines);
+    const medicines = await Medicine.find();
+    res.json(medicines);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
 });
 
-//Update medecine
+//Update medicine
 router.put("/:id", authMiddleware, async (req, res) => {
   try {
-    const updateMedecine = await Medecine.findByIdAndUpdate(
+    const updateMedicine = await Medicine.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true }
     );
-    res.json(updateMedecine);
+    res.json(updateMedicine);
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
@@ -42,8 +42,8 @@ router.put("/:id", authMiddleware, async (req, res) => {
 //Delete
 router.delete("/:id", authMiddleware, async (req, res) => {
   try {
-    await Medecine.findByIdAndDelete(req.params.id);
-    res.json({ message: "Medecine deleted." });
+    await Medicine.findByIdAndDelete(req.params.id);
+    res.json({ message: "Medicine deleted." });
   } catch (err) {
     res.status(500).json({ error: err.message });
   }

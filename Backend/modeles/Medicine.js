@@ -9,4 +9,4 @@ const medecineSchema = new mongoose.Schema({
   image: { type: String },
 });
 
-module.exports = mongoose.model("Medecine", medecineSchema);
+module.exports = mongoose.model("Medicine", medecineSchema);

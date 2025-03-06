@@ -12,7 +12,7 @@
 }
 
 .left-nav {
-  height: 80vh;
+  height: 70vh;
   padding: 1rem 2rem;
   background-color: #fff;
 }
@@ -21,14 +21,14 @@ th {
   padding: 0.25rem 0.75rem;
 }
 
-.add-medecine-btn {
+.add-medicine-Btn {
   margin-top: 2rem;
 }
 
-.medecine-name {
+.medicine-name {
 }
 
-.medecine-quantity {
+.medicine-quantity {
   display: flex;
   justify-content: center;
 }
@@ -36,7 +36,7 @@ th {
 .right-main {
   display: flex;
   padding: 1rem;
-  height: 80vh;
+  height: 70vh;
   align-items: center;
   justify-content: center;
   background-color: chartreuse;
@@ -71,8 +71,9 @@ th {
 }
 
 /*Hide modal until activation */
-#medicine-modal {
+.medicine-modal {
   position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -82,8 +83,8 @@ th {
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.6);
   z-index: 100;
-  visibility: visible;
-  opacity: 1;
+  visibility: hidden;
+  opacity: 0;
 }
 
 .modal-content {
@@ -140,4 +141,9 @@ th {
   border-radius: 50%;
   background-color: #fff;
   box-shadow: none;
+}
+
+.active-modal {
+  opacity: 1;
+  visibility: visible;
 }
