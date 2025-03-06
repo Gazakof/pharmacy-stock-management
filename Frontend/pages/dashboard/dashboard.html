@@ -35,6 +35,34 @@
           <button class="add-medecine-btn"><span>+</span> Add medecine</button>
         </div>
       </nav>
+      <section id="medicine-modal">
+        <div class="modal-content">
+          <button id="close-Btn">X</button>
+          <form id="modal-form">
+            <div class="modal-form-container">
+              <label for="name">Name</label>
+              <input type="text" id="name" />
+            </div>
+            <div class="modal-form-container">
+              <label for="quantity">Quantity</label>
+              <input type="number" id="quantity" />
+            </div>
+            <div class="modal-form-container">
+              <label for="price">Price</label>
+              <input type="number" id="price" />
+            </div>
+            <div class="modal-form-container">
+              <label for="manufacturer">Manufacturer</label>
+              <input type="text" id="manufacturer" />
+            </div>
+            <div class="modal-form-container">
+              <label for="">Expiration</label>
+              <input type="date" id="" />
+            </div>
+            <button type="submit">ADD</button>
+          </form>
+        </div>
+      </section>
 
       <div class="right-main">
         <h2 class="right-title"></h2>
@@ -48,10 +76,10 @@
                 <div class="content-item-details">
                   <div>
                     <p id="medicine-name"></p>
-                    <p id="medicine-manufacturer"></p>
+                    <p id="medicine-price"></p>
                   </div>
                   <div>
-                    <p id="medicine-price"></p>
+                    <p id="medicine-manufacturer"></p>
                     <p id="medicine-expiration"></p>
                   </div>
                 </div>
