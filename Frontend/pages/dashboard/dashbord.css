@@ -17,8 +17,24 @@
   background-color: #fff;
 }
 
+table {
+  width: 100%;
+}
+
+td,
 th {
+  max-width: 100px;
   padding: 0.25rem 0.75rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.col-large {
+  width: 75%;
+}
+.col-small {
+  width: 24%;
 }
 
 .add-medicine-Btn {
@@ -146,4 +162,16 @@ th {
 .active-modal {
   opacity: 1;
   visibility: visible;
+}
+
+@media screen and (max-width: 1024px) {
+  .left-nav {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .main {
+    grid-template-columns: 30% 69%;
+  }
 }

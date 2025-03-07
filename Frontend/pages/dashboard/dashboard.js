@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     medicines.forEach((med, index) => {
       const row = document.createElement("tr");
-      row.innerHTML = `<td class="medicine-name">${med.name}</td>
+      row.innerHTML = `<td class="medicine-name col-large">${med.name}</td>
             <td class="medicine-quantity">${med.quantity}</td>`;
       row.addEventListener("click", () => displayMedicineDetails(index));
       tableBody.appendChild(row);
@@ -124,37 +124,37 @@ document.addEventListener("DOMContentLoaded", function () {
       if (!name || !quantity || !price || !manufacturer || !expiration) {
         errMessage.textContent = "Fill all the fields please.";
         return;
-      }
-
-      try {
-        const response = await fetch("http://localhost:5000/medicines", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            name,
-            quantity,
-            price,
-            manufacturer,
-            expiration,
-          }),
-        });
-
-        let data;
-
+      } else {
         try {
-          data = await response.json();
-          console.log(data);
-        } catch (jsonError) {
-          throw new Error("Server response invalid.");
-        }
+          const response = await fetch("http://localhost:5000/medicines", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({
+              name,
+              quantity,
+              price,
+              manufacturer,
+              expiration,
+            }),
+          });
 
-        document.getElementById("modal-form").reset();
-        closeModal();
-      } catch (err) {
-        console.log("Server error!");
+          let data;
+
+          try {
+            data = await response.json();
+            console.log(data);
+          } catch (jsonError) {
+            throw new Error("Server response invalid.");
+          }
+
+          document.getElementById("modal-form").reset();
+          closeModal();
+        } catch (err) {
+          console.log("-Server error!");
+        }
       }
     });
 });
