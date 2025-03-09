@@ -7,10 +7,11 @@
   margin: 0;
   padding: 0;
   transition: 0.3s;
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: rgb(162, 196, 228);
+  background-color: rgb(192, 213, 233);
 }
 
 body,
