@@ -158,3 +158,19 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
 });
+
+function dropFunction() {
+  document.getElementById("drop").classList.toggle("show-drop-content");
+}
+window.onclick = function (e) {
+  if (!e.target.matches(".menu-option")) {
+    let dropDowns = document.getElementsByClassName("drop-content");
+    for (let i; i < dropDowns; i++) {
+      let openDrop = dropDowns[i];
+
+      if (openDrop.classList.contains("show-drop-content")) {
+        openDrop.classList.remove("show-drop-content");
+      }
+    }
+  }
+};
